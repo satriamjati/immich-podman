@@ -13,6 +13,8 @@ docker.io/tensorchord/pgvecto-rs:pg14-v0.2.0@sha256:739cdd626151ff1f796dc95a6591
 ```
 Prepare
 ```
+sudo mkdir -p /usr/lib/immich/pgdata
+sudo mkdir -p /mnt/data/immich
 sudo chown -R 1000:1000 /usr/lib/immich/pgdata
 sudo chown -R 1000:1000 /mnt/data/immich
 ```
@@ -41,7 +43,7 @@ podman run -d --replace \
   --name immich-redis \
   --network immich-network \
   -p 6379:6379 \
-  docker.io/valkey/valkey:8-bookworm@sha256:42cba146593a5ea9a622002c1b7cba5da7be248650cbb64ecb9c6c33d29794b1 
+  docker.io/valkey/valkey:8-bookworm@sha256:42cba146593a5ea9a622002c1b7cba5da7be248650cbb64ecb9c6c33d29794b1
 ```
 
 ```
@@ -55,10 +57,10 @@ podman run -d --replace \
   -e DB_PASSWORD=ImMich431onL1N3 \
   -e DB_DATABASE_NAME=immich \
   -e REDIS_HOST=redis \
-  -e UPLOAD_LOCATION=/mnt/data/immich \
+  -e UPLOAD_LOCATION=/usr/src/app/upload \
   -e TZ=Asia/Jakarta \
   -p 2283:2283 \
-  -v /mnt/data/immich:/mnt/data/immich \
+  -v /mnt/data/immich:/usr/src/app/upload \
   ghcr.io/immich-app/immich-server:v1.132.3
 ```
 
