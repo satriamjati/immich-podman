@@ -1,3 +1,16 @@
+Config
+```
+POSTGRES_PASSWORD=ImMich431onL1N3
+UPLOAD_LOCATION=/mnt/data/immich
+/usr/lib/immich/pgdata
+v1.132.3
+```
+Check docker-compose.yml
+```
+docker.io/valkey/valkey:8-bookworm@sha256:42cba146593a5ea9a622002c1b7cba5da7be248650cbb64ecb9c6c33d29794b1
+docker.io/tensorchord/pgvecto-rs:pg14-v0.2.0@sha256:739cdd626151ff1f796dc95a6591b55a714f341c737e27f045019ceabf8e8c52
+```
+
 ```
 podman network create immich-network
 ```
